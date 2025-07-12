@@ -1,0 +1,147 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    rgb(200, 0, 255),
+    rgb(126, 90, 255),
+    rgb(231, 170, 0)
+  );
+  max-height: 100vh;
+  padding-top: 25vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+article {
+  background-color: rgb(230, 217, 255);
+  width: 20%;
+  height: 50vh;
+  border: transparent;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  box-shadow: 10px 10px 20px #333;
+}
+
+article input {
+  height: 7vh;
+  padding: 5px;
+  outline: none;
+  border: transparent;
+  border-radius: 10px;
+}
+
+div {
+  height: 80vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+button {
+  width: 20%;
+  border-radius: 5px;
+  background-color: rgb(226, 226, 226);
+  border: 1px solid silver;
+  cursor: pointer;
+}
+
+button.operation {
+  background-color: rgb(131, 97, 255);
+  color: white;
+}
+
+button:hover {
+  background-color: silver;
+}
+
+button:active {
+  background-color: #999;
+}
+
+article input:focus {
+  border: 1px solid rgb(131, 97, 255);
+}
+
+.operation:hover {
+  background-color: rgb(164, 139, 255);
+}
+
+.operation:active {
+  background-color: rgb(185, 166, 255);
+}
+
+@media (min-width: 320px) {
+  * {
+    font-size: 1rem;
+  }
+  article {
+    width: 80%;
+  }
+  button {
+    width: 20%;
+    height: 5vh;
+  }
+}
+
+@media (min-width: 425px) {
+  * {
+    font-size: 1rem;
+  }
+  article {
+    width: 60%;
+  }
+  button {
+    width: 20%;
+    height: 5vh;
+  }
+}
+
+@media (min-width: 768px) {
+  * {
+    font-size: 1.2rem;
+  }
+  article {
+    width: 40%;
+  }
+  button {
+    width: 20%;
+  }
+}
+
+@media (min-width: 1024px) {
+  * {
+    font-size: 1.3rem;
+  }
+  article {
+    width: 30%;
+  }
+  button {
+    width: 20%;
+  }
+}
+
+@media (min-width: 1440px) {
+  * {
+    font-size: 1.3rem;
+  }
+  article {
+    width: 30%;
+    height: 60vh;
+  }
+  button {
+    width: 20%;
+    height: 15%;
+  }
+}
