@@ -16,3 +16,8 @@
 - CSS3 - flexbox, адаптивный дизайн, CSS-переменные.
 - ARIA - атрибуты для доступности.
 - JS - смена темы.
+
+## Скриншоты
+
+![Светлая тема](screenshots/light-theme.png)
+![Тёмная тема](screenshots/dark-theme.png)
