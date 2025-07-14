@@ -1,3 +1,23 @@
+:root {
+  --back: rgb(230, 217, 255);
+  --but: rgb(226, 226, 226);
+  --let: black;
+  --inp: #fafafa;
+  --bor: silver;
+  --hov: silver;
+  --act: #999;
+}
+
+:root.dark {
+  --back: #1a0038d7;
+  --but: #333;
+  --let: #fafafa;
+  --inp: #333;
+  --bor: gray;
+  --hov: #555;
+  --act: gray;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -17,10 +37,13 @@ body {
   padding-top: 25vh;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 article {
-  background-color: rgb(230, 217, 255);
+  background-color: var(--back);
   width: 20%;
   height: 50vh;
   border: transparent;
@@ -34,6 +57,8 @@ article {
 }
 
 article input {
+  background-color: var(--inp);
+  color: var(--let);
   height: 7vh;
   padding: 5px;
   outline: none;
@@ -49,12 +74,20 @@ div {
   gap: 15px;
 }
 
+#theme {
+  width: auto;
+  height: auto;
+  font-size: auto;
+  padding: 5px 10px;
+}
+
 button {
   width: 20%;
   border-radius: 5px;
-  background-color: rgb(226, 226, 226);
-  border: 1px solid silver;
+  background-color: var(--but);
+  border: 1px solid var(--bor);
   cursor: pointer;
+  color: var(--let);
 }
 
 button.operation {
@@ -63,11 +96,11 @@ button.operation {
 }
 
 button:hover {
-  background-color: silver;
+  background-color: var(--hov);
 }
 
 button:active {
-  background-color: #999;
+  background-color: var(--act);
 }
 
 article input:focus {
