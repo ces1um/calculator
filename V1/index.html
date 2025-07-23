@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Daniel" />
+    <meta name="description" content="Study project - calculator" />
+    <meta name="keywords" content="study | calc | project" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="../favicon.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <article role="application" aria-label="Калькулятор">
+      <input
+        readonly
+        value=""
+        type="text"
+        name="input-field"
+        aria-label="Дисплей калькулятора"
+        aria-live="polite"
+      />
+      <div class="calc-buttons">
+        <button class="operation" aria-label="Умножить">&#215;</button
+        ><button class="operation" aria-label="Разделить">&#247;</button
+        ><button class="operation" aria-label="Стереть всё">C</button
+        ><button class="operation" aria-label="Стереть один символ">CE</button
+        ><button>9</button><button>8</button><button>7</button
+        ><button class="operation" aria-label="Плюс">+</button><button>6</button
+        ><button>5</button><button>4</button
+        ><button class="operation" aria-label="Минус">-</button
+        ><button>3</button><button>2</button><button>1</button>
+        <!--prettier-ignore-->
+        <button class="operation" aria-label="Разделитель дробной части">.</button>
+        <button class="operation" aria-label="Левая скобка">(</button>
+        <button>0</button
+        ><button class="operation" aria-label="Правая скобка">)</button
+        ><button class="operation" aria-label="Равно">=</button>
+      </div>
+    </article>
+    <button id="theme" onclick="changeTheme()" name="theme">
+      Сменить тему
+    </button>
+    <script src="script.js"></script>
+  </body>
+</html>

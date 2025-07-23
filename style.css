@@ -1,0 +1,162 @@
+:root {
+  --font: #333;
+  --but: #fafafa;
+  --hov: silver;
+  --act: #999;
+}
+
+:root.dark {
+  --but: #333;
+  --font: #fafafa;
+  --act: #414141;
+  --hov: #505050;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1.3rem;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: linear-gradient(90deg, rgb(208, 0, 208), rgb(100, 0, 240));
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page-theme {
+  padding: 5px 10px;
+  background-color: var(--but);
+  cursor: pointer;
+  border: transparent;
+  border-radius: 5px;
+  color: var(--font);
+}
+.page-theme:hover {
+  background-color: var(--hov);
+}
+.page-theme:active {
+  background-color: var(--act);
+}
+
+.calculator {
+  width: 20%;
+  height: 50vh;
+  background-color: rgb(171, 156, 255);
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+  box-shadow: 5px 5px 15px #333;
+}
+.calculator__display {
+  padding: 5px;
+  grid-column: 1/5;
+  border: transparent;
+  border-radius: 5px;
+  color: var(--font);
+  background-color: var(--but);
+}
+.calculator__display:focus {
+  outline: 1px solid rgb(100, 0, 240);
+}
+.calculator__num {
+  padding: 5px 10px;
+  cursor: pointer;
+  color: var(--font);
+  background-color: var(--but);
+  border-radius: 5px;
+  border: transparent;
+}
+.calculator__num:hover {
+  background-color: var(--hov);
+}
+.calculator__num:active {
+  background-color: var(--act);
+}
+.calculator__operation {
+  cursor: pointer;
+  padding: 5px 10px;
+  color: #fafafa;
+  background-color: rgb(100, 0, 240);
+  border: transparent;
+  border-radius: 5px;
+}
+.calculator__operation:hover {
+  background-color: rgb(140, 58, 255);
+}
+.calculator__operation:active {
+  background-color: rgb(180, 126, 255);
+}
+
+@media (min-width: 320px) {
+  * {
+    font-size: 1rem;
+  }
+  .calculator {
+    width: 80%;
+  }
+  button {
+    width: auto;
+    height: auto;
+  }
+}
+@media (min-width: 425px) {
+  * {
+    font-size: 1rem;
+  }
+  .calculator {
+    width: 70%;
+  }
+  button {
+    width: auto;
+    height: auto;
+  }
+}
+@media (min-width: 768px) {
+  * {
+    font-size: 1.2rem;
+  }
+  .calculator {
+    width: 70%;
+    height: 70vh;
+  }
+  button {
+    width: auto;
+    height: auto;
+  }
+}
+@media (min-width: 1024px) {
+  * {
+    font-size: 1.3rem;
+  }
+  .calculator {
+    width: 30%;
+  }
+  button {
+    width: auto;
+    height: auto;
+  }
+}
+@media (min-width: 1440px) {
+  * {
+    font-size: 1.3rem;
+  }
+  .calculator {
+    width: 30%;
+    height: 60vh;
+  }
+  button {
+    width: auto;
+    height: auto;
+  }
+}/*# sourceMappingURL=style.css.map */

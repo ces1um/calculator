@@ -1,83 +1,102 @@
+const calculatorDisplay = document.querySelector("input[name='display']");
+const calculatorButtons = document.querySelectorAll("button");
+
+let firstNum = "";
+let secondNum = "";
+let isSecondNum = false;
+let result = 0;
+let operator = "";
+
 function changeTheme() {
   const element = document.querySelector("html");
   const classElement = element.classList.toggle("dark");
 }
 
-let display = document.querySelector("input[name='input-field']");
-let buttons = document.querySelectorAll("button");
-
-let firstNumber = "";
-let secondNumber = "";
-let result = 0;
-let operation = "";
-
-buttons.forEach((button) =>
+calculatorButtons.forEach((button) =>
   button.addEventListener("click", () => {
-    let content = button.textContent;
-
     if (button.id == "theme") {
       return;
     }
 
-    if (button.className !== "operation") {
-      if (firstNumber === "" && secondNumber === "") {
-        firstNumber = Number(content);
-        display.value += firstNumber;
-      } else if (firstNumber !== "" && secondNumber === "") {
-        secondNumber = Number(content);
-        display.value += secondNumber;
+    let content = button.textContent;
+
+    if (button.classList.contains("calculator__num")) {
+      if (!isSecondNum) {
+        firstNum += content;
+        calculatorDisplay.value = firstNum;
+      } else {
+        secondNum += content;
+        calculatorDisplay.value = secondNum;
       }
     }
 
-    if (
-      button.className === "operation" &&
-      content !== "CE" &&
-      content !== "C"
-    ) {
-      operation = content;
-      display.value += operation;
+    if (button.classList.contains("calculator__operation")) {
+      if (content === "C") {
+        resetAll();
+      } else if (content === "=") {
+        calculate();
+      } else if (content === "CE" || content === "(" || content === ")") {
+        calculatorDisplay.value = "Функционал в разработке!";
+      } else {
+        isSecondNum = true;
+        operator = content;
+        calculatorDisplay.value = operator;
+      }
     }
 
-    if (firstNumber !== "" && operation !== "" && secondNumber !== "") {
-      switch (operation) {
+    function calculate() {
+      const num1 = parseFloat(firstNum);
+      const num2 = parseFloat(secondNum);
+
+      switch (operator) {
         case "+":
-          result = firstNumber + secondNumber;
-          display.value = result;
+          result = num1 + num2;
+          calculatorDisplay.value = result;
           break;
         case "-":
-          result = firstNumber - secondNumber;
-          display.value = result;
+          result = num1 - num2;
+          calculatorDisplay.value = result;
           break;
         case "×":
-          result = firstNumber * secondNumber;
-          display.value = result;
+          result = num1 * num2;
+          calculatorDisplay.value = result;
+          break;
+        case "%":
+          result = (num2 * num1) / 100;
+          calculatorDisplay.value = result;
           break;
         case "÷":
-          if (secondNumber === 0) {
-            display.value = "Ошибка! На 0 не делят!";
+          if (secondNum !== "0") {
+            result = num1 / num2;
+            calculatorDisplay.value = result;
+            break;
           } else {
-            result = firstNumber / secondNumber;
-            display.value = result;
+            calculatorDisplay.value = "На ноль делить нельзя!";
+            firstNum = "";
+            secondNum = "";
+            isSecondNum = false;
+            operator = "";
+            result = 0;
+            break;
           }
       }
     }
 
-    if (
-      content === "(" ||
-      content === ")" ||
-      content === "." ||
-      content === "CE" ||
-      content === "="
-    ) {
-      alert("функционал дорабатывается!");
+    function resetElement() {
+      NaN;
     }
 
-    if (content == "C") {
-      display.value = "";
-      firstNumber = "";
-      secondNumber = "";
-      operation = "";
+    function resetAll() {
+      calculatorDisplay.value = 0;
+      firstNum = "";
+      secondNum = "";
       result = 0;
+      operator = "";
+      isSecondNum = false;
     }
+
+    console.log("firstNum: " + firstNum);
+    console.log("operator: " + operator);
+    console.log("secondNum: " + secondNum);
   })
 );
