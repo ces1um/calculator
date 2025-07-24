@@ -35,7 +35,15 @@ calculatorButtons.forEach((button) =>
         resetAll();
       } else if (content === "=") {
         calculate();
-      } else if (content === "CE" || content === "(" || content === ")") {
+      } else if (content === ".") {
+        if (!isSecondNum) {
+          firstNum += ".";
+          calculatorDisplay.value = firstNum;
+        } else {
+          secondNum += ".";
+          calculatorDisplay.value = secondNum;
+        }
+      } else if (content === "CE" || content === "()") {
         calculatorDisplay.value = "Функционал в разработке!";
       } else {
         isSecondNum = true;
@@ -80,10 +88,6 @@ calculatorButtons.forEach((button) =>
             break;
           }
       }
-    }
-
-    function resetElement() {
-      NaN;
     }
 
     function resetAll() {
