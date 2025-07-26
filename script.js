@@ -35,16 +35,12 @@ calculatorButtons.forEach((button) =>
         resetAll();
       } else if (content === "=") {
         calculate();
+      } else if (content === "CE") {
+        resetElement();
       } else if (content === ".") {
-        if (!isSecondNum) {
-          firstNum += ".";
-          calculatorDisplay.value = firstNum;
-        } else {
-          secondNum += ".";
-          calculatorDisplay.value = secondNum;
-        }
-      } else if (content === "CE" || content === "()") {
-        calculatorDisplay.value = "Функционал в разработке!";
+        floatNum();
+      } else if (content === "+/-") {
+        changeNumberSign();
       } else {
         isSecondNum = true;
         operator = content;
@@ -59,24 +55,34 @@ calculatorButtons.forEach((button) =>
       switch (operator) {
         case "+":
           result = num1 + num2;
-          calculatorDisplay.value = result;
+          firstNum = result;
+          calculatorDisplay.value = firstNum;
+          secondNum = "";
           break;
         case "-":
           result = num1 - num2;
-          calculatorDisplay.value = result;
+          firstNum = result;
+          calculatorDisplay.value = firstNum;
+          secondNum = "";
           break;
         case "×":
           result = num1 * num2;
-          calculatorDisplay.value = result;
+          firstNum = result;
+          calculatorDisplay.value = firstNum;
+          secondNum = "";
           break;
         case "%":
           result = (num2 * num1) / 100;
-          calculatorDisplay.value = result;
+          firstNum = result;
+          calculatorDisplay.value = firstNum;
+          secondNum = "";
           break;
         case "÷":
           if (secondNum !== "0") {
             result = num1 / num2;
-            calculatorDisplay.value = result;
+            firstNum = result;
+            calculatorDisplay.value = firstNum;
+            secondNum = "";
             break;
           } else {
             calculatorDisplay.value = "На ноль делить нельзя!";
@@ -87,6 +93,36 @@ calculatorButtons.forEach((button) =>
             result = 0;
             break;
           }
+      }
+    }
+
+    function floatNum() {
+      if (!isSecondNum) {
+        firstNum += ".";
+        calculatorDisplay.value = firstNum;
+      } else {
+        secondNum += ".";
+        calculatorDisplay.value = secondNum;
+      }
+    }
+
+    function changeNumberSign() {
+      if (!isSecondNum) {
+        firstNum = parseFloat((firstNum * -1).toString());
+        calculatorDisplay.value = firstNum;
+      } else {
+        secondNum = parseFloat((secondNum * -1).toString());
+        calculatorDisplay.value = secondNum;
+      }
+    }
+
+    function resetElement() {
+      if (!isSecondNum) {
+        firstNum = firstNum.slice(0, -1);
+        calculatorDisplay.value = firstNum;
+      } else {
+        secondNum = secondNum.slice(0, -1);
+        calculatorDisplay.value = secondNum;
       }
     }
 
