@@ -45,9 +45,12 @@ body {
   color: var(--font);
   &:hover {
     background-color: var(--hov);
+    transition: 0.2s;
   }
   &:active {
     background-color: var(--act);
+    transform: scale(0.95);
+    transition: 0.2s;
   }
 }
 
@@ -83,9 +86,12 @@ body {
     border: transparent;
     &:hover {
       background-color: var(--hov);
+      transition: 0.2s;
     }
     &:active {
       background-color: var(--act);
+      transform: scale(0.95);
+      transition: 0.2s;
     }
   }
   &__operation {
@@ -97,9 +103,12 @@ body {
     border-radius: 5px;
     &:hover {
       background-color: rgb(140, 58, 255);
+      transition: 0.2s;
     }
     &:active {
       background-color: rgb(180, 126, 255);
+      transform: scale(0.95);
+      transition: 0.2s;
     }
   }
 }

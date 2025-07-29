@@ -97,6 +97,9 @@ calculatorButtons.forEach((button) =>
     }
 
     function floatNum() {
+      const num = !isSecondNum ? firstNum : secondNum;
+      if (num.includes(".")) return;
+
       if (!isSecondNum) {
         firstNum += ".";
         calculatorDisplay.value = firstNum;
@@ -117,12 +120,12 @@ calculatorButtons.forEach((button) =>
     }
 
     function resetElement() {
-      if (!isSecondNum) {
+      if (!isSecondNum && firstNum.length > 0) {
         firstNum = firstNum.slice(0, -1);
-        calculatorDisplay.value = firstNum;
-      } else {
+        calculatorDisplay.value = firstNum || "0";
+      } else if (isSecondNum && secondNum.length > 0) {
         secondNum = secondNum.slice(0, -1);
-        calculatorDisplay.value = secondNum;
+        calculatorDisplay.value = secondNum || "0";
       }
     }
 

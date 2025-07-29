@@ -40,9 +40,12 @@ body {
 }
 .page-theme:hover {
   background-color: var(--hov);
+  transition: 0.2s;
 }
 .page-theme:active {
   background-color: var(--act);
+  transform: scale(0.95);
+  transition: 0.2s;
 }
 
 .calculator {
@@ -79,9 +82,12 @@ body {
 }
 .calculator__num:hover {
   background-color: var(--hov);
+  transition: 0.2s;
 }
 .calculator__num:active {
   background-color: var(--act);
+  transform: scale(0.95);
+  transition: 0.2s;
 }
 .calculator__operation {
   cursor: pointer;
@@ -93,9 +99,12 @@ body {
 }
 .calculator__operation:hover {
   background-color: rgb(140, 58, 255);
+  transition: 0.2s;
 }
 .calculator__operation:active {
   background-color: rgb(180, 126, 255);
+  transform: scale(0.95);
+  transition: 0.2s;
 }
 
 @media (min-width: 320px) {
